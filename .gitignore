@@ -9,6 +9,7 @@
 
 *.iml
 .idea
+log
 out
 target
 
