@@ -1,14 +1,14 @@
 package ru.leovalter.shop.model;
 
-public abstract class AbstractProduct extends AbstractNamedEntity {
+public class Product extends AbstractNamedEntity {
     private String description;
     private Double price;
     private Double weight;
 
-    public AbstractProduct() {
+    public Product() {
     }
 
-    public AbstractProduct(Integer id, String name, String description, Double price, Double weight) {
+    public Product(Integer id, String name, String description, Double price, Double weight) {
         super(id, name);
         this.description = description;
         this.price = price;
