@@ -1,26 +1,24 @@
 package ru.leovalter.shop.model;
 
-public abstract class AbstractNamedEntity extends AbstractBaseEntity {
-    String name;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
-    public AbstractNamedEntity() {
-    }
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+
+@Data
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@MappedSuperclass
+public abstract class AbstractNamedEntity extends AbstractBaseEntity {
+
+    @Column(name = "name")
+    protected String name;
 
     public AbstractNamedEntity(Integer id, String name) {
         super(id);
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public String toString() {
-        return super.toString() + "(" + name + ")";
-    }
 }

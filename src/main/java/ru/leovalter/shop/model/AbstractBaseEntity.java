@@ -1,25 +1,24 @@
 package ru.leovalter.shop.model;
 
-public abstract class AbstractBaseEntity {
-    Integer id;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import ru.leovalter.shop.HasId;
 
-    public AbstractBaseEntity() {
-    }
+import javax.persistence.*;
+
+@Data()
+@NoArgsConstructor
+@MappedSuperclass
+public abstract class AbstractBaseEntity implements HasId {
+
+    public static final int START_SEQUENCE = 1000;
+
+    @Id
+    @SequenceGenerator(name = "global_sequence", sequenceName = "global_sequence", allocationSize = 1, initialValue = START_SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "global_sequence")
+    protected Integer id;
 
     public AbstractBaseEntity(Integer id) {
         this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + ":" + id;
     }
 }
