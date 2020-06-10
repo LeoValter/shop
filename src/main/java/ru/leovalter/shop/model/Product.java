@@ -17,6 +17,10 @@ public class Product extends AbstractNamedEntity {
         this.weight = weight;
     }
 
+    public Product(Product product) {
+        this(product.getId(), product.getName(), product.getDescription(), product.getPrice(), product.getWeight());
+    }
+
     @Override
     public String toString() {
         return "Product{" +

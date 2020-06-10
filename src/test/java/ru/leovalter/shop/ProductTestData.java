@@ -22,4 +22,8 @@ public class ProductTestData {
     public static final Product PRODUCT_10 = new Product(PRODUCT_ID + 9, "Product 10", "Description about product 10", 1.10, 11.10);
 
     public static final List<Product> PRODUCTS = List.of(PRODUCT_1, PRODUCT_2, PRODUCT_3, PRODUCT_4, PRODUCT_5, PRODUCT_6, PRODUCT_7, PRODUCT_8, PRODUCT_9, PRODUCT_10);
+
+    public static Product getNew() {
+        return new Product(null, "New Product", "This is new Product", 100.00, 20.00);
+    }
 }
